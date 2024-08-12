@@ -32,21 +32,20 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
     final ImagePicker picker = ImagePicker();
     XFile? pickedFile;
 
-    // Show dialog to choose between camera and gallery
     await showModalBottomSheet(
       context: context,
       builder: (context) {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            ListTile(
-              leading: Icon(Icons.camera_alt),
-              title: Text('Take a Photo'),
-              onTap: () async {
-                pickedFile = await picker.pickImage(source: ImageSource.camera);
-                Navigator.pop(context);
-              },
-            ),
+            // ListTile(
+            //   leading: Icon(Icons.camera_alt),
+            //   title: Text('Take a Photo'),
+            //   onTap: () async {
+            //     pickedFile = await picker.pickImage(source: ImageSource.camera);
+            //     Navigator.pop(context);
+            //   },
+            // ),
             ListTile(
               leading: Icon(Icons.photo_album),
               title: Text('Choose from Gallery'),
@@ -89,7 +88,7 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Inspecor',
+          'Inspector',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.teal,
@@ -108,7 +107,6 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
                   children: [
                     Row(
                       children: [
-                        // Checkbox with green tick when checked
                         Checkbox(
                           value: _checklistItems[index]['checked'],
                           onChanged: (bool? value) {
@@ -118,7 +116,6 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
                           checkColor: Colors.white,
                         ),
                         SizedBox(width: 8),
-                        // Title Input Field
                         Expanded(
                           child: TextField(
                             onChanged: (value) {
@@ -157,7 +154,7 @@ class _ChecklistScreenState extends State<ChecklistScreen> {
                       maxLines: 2,
                     ),
                     SizedBox(height: 8),
-                    // Main Image and Checkbox Image Upload
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

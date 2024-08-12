@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'checklist_screen.dart'; // Ensure this import is correct
+import 'checklist_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -13,7 +13,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _login() {
     if (_formKey.currentState!.validate()) {
-      // Navigate to ChecklistScreen after successful login
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ChecklistScreen()),
@@ -26,30 +25,25 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                    "assets\images\backgroud.jpeg"), // Add your background image to assets
+                image: AssetImage("assets\images\backgroud.jpeg"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // Overlay for dimming the background image
           Container(
             color: Colors.lightBlue.withOpacity(0.5),
           ),
-          // Content
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // App Title
                   Text(
-                    'Inspector', // Replace with your app name or logo
+                    'Inspector',
                     style: TextStyle(
                       fontSize: 40,
                       color: Colors.white,
@@ -57,12 +51,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(height: 30),
-                  // Login Form
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                        // Username Field
                         TextFormField(
                           controller: _usernameController,
                           decoration: InputDecoration(
@@ -83,7 +75,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
                         SizedBox(height: 20),
-                        // Password Field
                         TextFormField(
                           controller: _passwordController,
                           decoration: InputDecoration(
@@ -105,7 +96,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
                         SizedBox(height: 20),
-                        // Login Button
                         ElevatedButton(
                           onPressed: _login,
                           style: ElevatedButton.styleFrom(
@@ -118,11 +108,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Text('Log In', style: TextStyle(fontSize: 18)),
                         ),
                         SizedBox(height: 10),
-                        // Forgot Password Link
                         TextButton(
-                          onPressed: () {
-                            // Forgot password action
-                          },
+                          onPressed: () {},
                           child: Text(
                             'Forgot Password?',
                             style: TextStyle(color: Colors.white),
